@@ -6,6 +6,16 @@ function json_(payload) {
     .setMimeType(ContentService.MimeType.JSON);
 }
 
+function resultPage_(ok, message) {
+  const payload = JSON.stringify({ type: 'tantei-yasazou-form', ok: ok, message: message });
+  const safe = payload.replace(/</g, '\\u003c');
+  return HtmlService.createHtmlOutput(
+    '<!doctype html><html><body><script>' +
+    'window.parent.postMessage(' + safe + ', "*");' +
+    '</script></body></html>'
+  );
+}
+
 function doGet() {
   return json_({ ok: true, service: '探偵やさぞうお問い合わせフォーム' });
 }
@@ -19,10 +29,10 @@ function doPost(e) {
   const message = String(p.message || '').trim();
 
   if (!name || !email || !message) {
-    return json_({ ok: false, message: '必須項目が不足しています。' });
+    return resultPage_(false, '必須項目が不足しています。');
   }
   if (!EMAIL_RE.test(email)) {
-    return json_({ ok: false, message: 'メールアドレスの形式が正しくありません。' });
+    return resultPage_(false, 'メールアドレスの形式が正しくありません。');
   }
 
   const body =
@@ -39,8 +49,8 @@ function doPost(e) {
       body: body,
       replyTo: email
     });
-    return json_({ ok: true, message: '送信しました。' });
+    return resultPage_(true, '送信しました。');
   } catch (err) {
-    return json_({ ok: false, message: '送信に失敗しました。' });
+    return resultPage_(false, '送信に失敗しました。時間をおいてもう一度お試しください。');
   }
 }
