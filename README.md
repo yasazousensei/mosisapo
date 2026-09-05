@@ -1,9 +1,27 @@
-# 探偵やさぞう GitHub Pages
+# 探偵やさぞう｜GitHub Pages用サイト v2
 
-GitHubでRepositoryを作り、このフォルダの中身をアップロードしてください。Settings → Pages → Deploy from a branch → main / root で公開できます。
+## 今回の改良
+- スマートフォンを最優先に設計
+- スマホでは右上に「☰」メニューを表示
+- メニューをタップすると全ページへのナビが開く
+- メイン画像をスマホで切り取らない（縦横比を維持して全体表示）
+- 画面下部に「LINEで相談」「お問い合わせ」の固定ボタン
+- 文字サイズ・余白・カード幅をスマホ向けに調整
+- お問い合わせページの見出しを日本語に修正
+- PC表示では横型メニューに自動切替
 
-お問い合わせフォームはGoogle Apps ScriptのWebアプリを受信先にします。同梱のgoogle-apps-script/Code.gsを使用し、公開前にフォーム接続を行ってください。
+## GitHub Pages
+このフォルダの中身をリポジトリのルートへアップロードしてください。
+`index.html` がリポジトリ直下にある状態にします。
 
-LINE: https://lin.ee/oAWZvcK
+Settings → Pages → Deploy from a branch → main / root
 
-公開前に、料金・サービス内容・正式表示・広告名称の扱いを確認してください。
+## LINE
+https://lin.ee/oAWZvcK
+
+## フォーム
+GitHub Pagesは静的サイトのため、Webフォーム送信にはGoogle Apps Script等の受信先が必要です。
+同梱の `google-apps-script/Code.gs` を利用できます。
+
+## 重要
+公開前に、探偵業の広告名称・料金・正式表示・サービス内容を確認してください。
