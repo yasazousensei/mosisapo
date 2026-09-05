@@ -1,0 +1,2 @@
+const TO_EMAIL="imu3bbt@gmail.com";
+function doPost(e){const p=e.parameter||{};const body="お名前: "+(p.name||"")+"\nメール: "+(p.email||"")+"\n電話: "+(p.phone||"")+"\n相談: "+(p.category||"")+"\n\n"+(p.message||"");MailApp.sendEmail({to:TO_EMAIL,subject:"【探偵やさぞう】お問い合わせ",body:body,replyTo:p.email||TO_EMAIL});return ContentService.createTextOutput(JSON.stringify({ok:true})).setMimeType(ContentService.MimeType.JSON)}
