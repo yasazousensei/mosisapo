@@ -42,3 +42,6 @@ https://lin.ee/oAWZvcK
 - 届出公安委員会：兵庫県公安委員会
 - 受理番号：第632600003号
 - 届出年月日：令和8年2月26日
+
+
+V8: WebフォームはGoogle Apps Script URLをHTMLのform actionへ直接指定し、隠しiframeへ通常POSTする方式です。
