@@ -130,12 +130,12 @@ img{max-width:100%;height:auto;display:block}
   line-height:1.12;
   color:var(--green-dark);
   letter-spacing:.01em;
-  word-break:keep-all;
+  overflow-wrap:anywhere;word-break:normal;
 }
 .lead{
   font-size:18px;
   line-height:1.95;
-  word-break:keep-all;
+  overflow-wrap:anywhere;word-break:normal;
 }
 .tag{
   display:inline-block;
@@ -152,6 +152,7 @@ img{max-width:100%;height:auto;display:block}
   align-items:center;
   justify-content:center;
   min-height:46px;
+  max-width:100%;
   padding:9px 20px;
   border-radius:999px;
   border:2px solid var(--green);
@@ -159,6 +160,9 @@ img{max-width:100%;height:auto;display:block}
   color:#fff;
   text-decoration:none;
   font-weight:900;
+  line-height:1.45;
+  text-align:center;
+  overflow-wrap:anywhere;
 }
 .btn:hover{background:var(--green-dark);border-color:var(--green-dark)}
 
@@ -168,19 +172,19 @@ img{max-width:100%;height:auto;display:block}
   margin:12px 0 28px;
   font-size:clamp(32px,9vw,56px);
   line-height:1.25;
-  word-break:keep-all;
+  overflow-wrap:anywhere;word-break:normal;
 }
 .sec h2{
   margin:0 0 24px;
   font-size:clamp(27px,7vw,40px);
   line-height:1.4;
-  word-break:keep-all;
+  overflow-wrap:anywhere;word-break:normal;
 }
 .sec h3{
   margin:0 0 10px;
   font-size:20px;
   line-height:1.5;
-  word-break:keep-all;
+  overflow-wrap:anywhere;word-break:normal;
 }
 .grid,.two{
   display:grid;
@@ -222,12 +226,15 @@ table{
   width:100%;
   border-collapse:collapse;
   background:#fff;
+  table-layout:fixed;
 }
 th,td{
   border:1px solid var(--line);
   padding:13px;
   text-align:left;
   vertical-align:top;
+  overflow-wrap:anywhere;
+  word-break:break-word;
 }
 th{background:var(--green-pale);width:38%}
 input,select,textarea{
@@ -305,4 +312,38 @@ button.btn:disabled{opacity:.55;cursor:not-allowed}
   .hero-inner{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:0;background:#eaf7ff}
   .hero-inner>img{height:auto;width:100%}
   .hero-copy{width:auto;margin:0;padding:50px 6%}
+}
+
+
+/* ===== v9.1 mobile readability / CTA hardening ===== */
+html,body{overflow-x:hidden}
+.hero-copy,.copy,.sec .wrap{min-width:0}
+.green .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.green .cta-row .btn{flex:1 1 240px;margin:0}
+@media(max-width:799px){
+  .wrap{width:calc(100% - 32px);max-width:none}
+  .headin{width:calc(100% - 24px)}
+  .logo{min-width:0;overflow:hidden;text-overflow:ellipsis}
+  .logo small{font-size:9px}
+  .logo strong{font-size:17px}
+  .nav{left:0;right:0;width:100%;padding:10px 12px}
+  .hero-copy{width:calc(100% - 32px);padding:24px 0 38px}
+  .hero-copy h1{font-size:clamp(36px,11vw,54px);overflow-wrap:anywhere;word-break:normal}
+  .lead{font-size:16px;line-height:1.85;overflow-wrap:anywhere;word-break:normal}
+  .sec{padding:44px 0}
+  .sec h1{font-size:clamp(30px,9vw,46px);overflow-wrap:anywhere;word-break:normal}
+  .sec h2{font-size:clamp(24px,7vw,34px);overflow-wrap:anywhere;word-break:normal}
+  .sec h3{font-size:18px;overflow-wrap:anywhere;word-break:normal}
+  .card{padding:18px;border-radius:14px;min-width:0}
+  .card p{overflow-wrap:anywhere;word-break:normal}
+  .notice{padding:14px 15px;overflow-wrap:anywhere}
+  table{font-size:15px}
+  th,td{padding:10px}
+  th{width:40%}
+  .sec p{overflow-wrap:anywhere;word-break:normal}
+  .sec .btn{white-space:normal}
+  .green .cta-row{display:flex;flex-direction:column;gap:10px}
+  .green .cta-row .btn{width:100%;flex:0 0 auto}
+  .sticky-contact{padding:7px 8px;gap:6px}
+  .sticky-contact a{min-width:0;overflow-wrap:anywhere;white-space:normal}
 }
