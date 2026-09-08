@@ -347,3 +347,36 @@ html,body{overflow-x:hidden}
   .sticky-contact{padding:7px 8px;gap:6px}
   .sticky-contact a{min-width:0;overflow-wrap:anywhere;white-space:normal}
 }
+
+
+/* ===== Representative profile ===== */
+.representative{
+  display:grid;
+  grid-template-columns:160px 1fr;
+  gap:20px;
+  align-items:center;
+  margin-top:28px;
+}
+.representative img{
+  width:160px;
+  height:160px;
+  object-fit:cover;
+  object-position:center;
+  border-radius:50%;
+  border:4px solid #fff;
+  box-shadow:0 7px 22px rgba(0,0,0,.10);
+}
+.representative h2{margin:0 0 10px}
+.representative p{margin:0}
+
+@media(max-width:799px){
+  .representative{
+    grid-template-columns:1fr;
+    text-align:center;
+    justify-items:center;
+  }
+  .representative img{
+    width:180px;
+    height:180px;
+  }
+}
